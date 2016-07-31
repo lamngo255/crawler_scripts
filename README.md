@@ -1,2 +1,2 @@
 # Crawler Scripts
-Crawler scripts for extracting data from common webpages.
+Several scripts for extracting data from common webpages.
