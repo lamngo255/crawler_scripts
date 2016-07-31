@@ -1,3 +1,4 @@
+# return links content and the link itself
 import requests
 import sys
 from bs4 import BeautifulSoup

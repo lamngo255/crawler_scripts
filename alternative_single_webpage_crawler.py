@@ -1,4 +1,4 @@
-# find all links
+# find all links using regex
 import requests
 import re
 
