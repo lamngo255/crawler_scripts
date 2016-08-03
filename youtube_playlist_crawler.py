@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 PLAYLIST = 'https://www.youtube.com/watch?v=FNQxxpM1yOs&list=PLQVvvaa0QuDeA05ZouE4OzDYLHY-XH-Nd'
 TITLE_START = 0
@@ -16,13 +16,13 @@ def crawl(url):
         for link in playlist.findAll('a'):
             results = urljoin(DOMAIN, link.get('href'))
             # links.append(results)
-            print results
+            print (results)
         for title in playlist.findAll('h4'):
             title = title.string.strip()
             title = title.replace("'", "")
             title = title[TITLE_START:].strip()
             # titles.append(title)
-            print title
+            print (title)
 
 
 crawl(PLAYLIST)

@@ -1,17 +1,13 @@
 # return links content and the link itself
 import requests
-import sys
 from bs4 import BeautifulSoup
-from urlparse import urljoin
-
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
+from urllib.parse import urljoin
 
 url = 'https://www.youtube.com/'
 content = requests.get(url)
 soup = BeautifulSoup(content.text, 'html.parser')
 
 for elem in soup.find_all("a", href=True):
-    print elem.string
-    print urljoin(url, elem['href'])
+    print (elem.string)
+    print (urljoin(url, elem['href']))
+
