@@ -16,13 +16,13 @@ def crawl(url):
         for link in playlist.findAll('a'):
             results = urljoin(DOMAIN, link.get('href'))
             # links.append(results)
-            print (results)
+            print(results)
         for title in playlist.findAll('h4'):
             title = title.string.strip()
             title = title.replace("'", "")
             title = title[TITLE_START:].strip()
             # titles.append(title)
-            print (title)
+            print(title)
 
 
 crawl(PLAYLIST)
