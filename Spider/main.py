@@ -11,6 +11,7 @@ Spider(DOMAIN_NAME, HOMEPAGE)
 q = Queue()
 
 
+# crawl the next url
 def work():
     while True:
         url = q.get()
@@ -18,6 +19,7 @@ def work():
         q.task_done()
 
 
+# Create spider threads (will be terminated when main exits)
 def create_spiders():
     for x in range(NUM_SPIDERS):
         t = threading.Thread(target=work)
@@ -25,6 +27,7 @@ def create_spiders():
         t.start()
 
 
+# Each queued link is a new job
 def create_jobs():
     for link in Spider.queue:
         q.put(link)
@@ -32,6 +35,7 @@ def create_jobs():
     crawl()
 
 
+# Check if there are items in queue, if so crawl it
 def crawl():
     if len(Spider.queue) > 0:
         print(str(len(Spider.queue)) + " links in the queue")
