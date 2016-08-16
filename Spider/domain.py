@@ -16,4 +16,4 @@ def get_sub_domain_name(url):
         return ''
 
 
-# print(get_domain_name("https://mail.mocmeo.wordpress.com/abcxyz.php"))
+# print(get_sub_domain_name("https://www.youtube.com/"))
