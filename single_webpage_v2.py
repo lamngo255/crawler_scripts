@@ -8,5 +8,5 @@ content = requests.get(url)
 soup = BeautifulSoup(content.text, 'html.parser')
 
 for elem in soup.find_all("a", href=True):
-    print(elem.string)
-    print(urljoin(url, elem['href']))
+    print (elem.string)
+    print (urljoin(url, elem['href']))
