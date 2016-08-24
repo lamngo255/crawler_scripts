@@ -12,17 +12,20 @@ links = []
 def crawl(url):
     content = requests.get(url).text
     soup = BeautifulSoup(content, "html.parser")
-    for playlist in soup.findAll('div', {'class': 'playlist-videos-container'}):
-        for link in playlist.findAll('a'):
-            results = urljoin(DOMAIN, link.get('href'))
-            # links.append(results)
-            print(results)
-        for title in playlist.findAll('h4'):
-            title = title.string.strip()
-            title = title.replace("'", "")
-            title = title[TITLE_START:].strip()
-            # titles.append(title)
-            print(title)
-
+    try:
+        for playlist in soup.findAll('div',
+                                     {'class': 'playlist-videos-container'}):
+            for link in playlist.findAll('a'):
+                results = urljoin(DOMAIN, link.get('href'))
+                # links.append(results)
+                print(results)
+            for title in playlist.findAll('h4'):
+                title = title.string.strip()
+                title = title.replace("'", "")
+                title = title[TITLE_START:].strip()
+                # titles.append(title)
+                print(title)
+    except:
+        print('Error!')
 
 crawl(PLAYLIST)

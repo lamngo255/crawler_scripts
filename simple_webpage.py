@@ -6,7 +6,10 @@ url = input("Enter a URL: ")
 
 website = requests.get(url)
 content = website.text
-links = re.findall('"((http|ftp)s?://.*?)"', content)
+try:
+    links = re.findall('"((http|ftp)s?://.*?)"', content)
 
-for link in links:
-    print(link[0])
+    for link in links:
+        print(link[0])
+except:
+    print('Error!')
